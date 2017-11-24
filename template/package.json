@@ -1,0 +1,53 @@
+{
+  "name": "react_webpack",
+  "version": "1.0.0",
+  "main": "''",
+  "scripts": {
+    "local": "gupack build -e local -s",
+    "dev": "gupack build -e dev -s",
+    "stg": "gupack build -e stg -s",
+    "prd": "gupack build -e prd -s",
+    "start": "gupack build -eso",
+    "service": "nodemon ./server/app.js",
+    "test": "gupack test"
+  },
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-plugin-add-module-exports": "^0.2.1",
+    "babel-plugin-transform-es2015-modules-commonjs": "^6.26.0",
+    "babel-plugin-transform-export-extensions": "^6.22.0",
+    "babel-preset-env": "^1.6.1",
+    "css-loader": "^0.28.7",
+    "extract-text-webpack-plugin": "^3.0.1",
+    "file-loader": "^1.1.5",
+    "gulp-autoprefixer": "^3.1.0",
+    "gulp-concat": "^2.6.0",
+    "gulp-htmlmin": "^3.0.0",
+    "gulp-jsminer": "^1.0.2",
+    "gulp-merge-css": "^1.0.1",
+    "gulp-recache": "^1.0.5",
+    "gulp-sass": "^3.1.0",
+    "gulp-tag-include": "^1.1.6",
+    "gulp-uglifycss": "^1.0.4",
+    "gulp-webpack-multi-entry": "^1.0.3",
+    "sass-loader": "^6.0.6",
+    "style-loader": "^0.19.0",
+    "svg-url-loader": "^2.3.0",
+    "url-loader": "^0.6.2",
+    "vue-loader": "^13.5.0",
+    "vue-style-loader": "^3.0.3",
+    "vue-template-compiler": "^2.5.6",
+    "webpack": "^3.8.1"
+  },
+  "directories": {
+    "test": "test"
+  },
+  "dependencies": {
+    "axios": "^0.17.1",
+    "vue": "^2.5.6"
+  },
+  "description": ""
+}

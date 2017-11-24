@@ -1,0 +1,33 @@
+.tool-chain{
+    display: flex;
+    width: 90%;
+    max-width: 300px;
+    position: absolute;
+    left: 50%;
+    bottom: 6%;
+    transform: translate3d(-50%, 0, 0);
+    &:after{
+        content: "";
+        display: block;
+        width: 0;
+        height: 0;
+        zoom: 1;
+        clear: both;
+    }
+    a{
+        flex: 1;
+        flex-basis: 50%;
+        flex-direction: column;
+        float: left;
+        img{
+            display: block;
+            width: 75px;
+            margin: 0 auto;
+        }
+        &:first-child{
+            img{
+                width: 30px;
+            }
+        }
+    }
+}
