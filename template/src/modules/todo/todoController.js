@@ -1,6 +1,9 @@
 /**
  * Created by Rodey on 2017/11/21
  */
+
+import { ALL, COMPLETED, UNCOMPLETED } from './todoStates';
+
 export default class TodoController {
 
     constructor(){
@@ -37,13 +40,25 @@ export default class TodoController {
     getTodos(type){
         this.init();
         switch(type){
-            case 'all':
+            case ALL:
                 return this.todos;
-            case 'completed':
+            case COMPLETED:
                 return this.todos.filter(todo => todo.completed);
-            case 'uncompleted':
+            case UNCOMPLETED:
                 return this.todos.filter(todo => !todo.completed);
         }
+    }
+
+    getAllTodos(){
+        return this.getTodos(ALL);
+    }
+
+    getCompletedTodos(){
+        return this.getTodos(COMPLETED);
+    }
+
+    getUncompletedTodos(){
+        return this.getTodos(UNCOMPLETED);
     }
 
     setItem(){

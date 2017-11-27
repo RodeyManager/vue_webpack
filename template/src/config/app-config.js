@@ -1,6 +1,6 @@
 import API from './api';
 
-const ENV = 'local';
+const ENV = 'dev';
 const protocolReg = /^(https?:)?\/\//i;
 const APP = require(`./env/${ ENV }`);
 

@@ -6,8 +6,8 @@
         <editor-todo v-show="isEditor" v-bind:offsetTop="editOffsetTop" v-bind:content="editTodo.content" v-on:ON_EDIT_SUCCESS="onEditSuccess"></editor-todo>
         <div class="link-nav">
             <a href="javascript:void(0);" @click="onActive('all')">全部 <span>({{ allSize }})</span></a>
-            <a href="javascript:void(0);" @click="onActive('complete')">已完成 <span>({{ completedSize }})</span></a>
-            <a href="javascript:void(0);" @click="onActive('uncomplete')">未完成 <span>({{ uncompletedSize }})</span></a>
+            <a href="javascript:void(0);" @click="onActive('completed')">已完成 <span>({{ completedSize }})</span></a>
+            <a href="javascript:void(0);" @click="onActive('uncompleted')">未完成 <span>({{ uncompletedSize }})</span></a>
         </div>
     </div>
 </template>
@@ -17,6 +17,7 @@
     import EditorTodo from './editorTodo.vue';
     import TodoList from './todoList.vue';
     import TodoController from '../../../modules/todo/todoController';
+    import { ALL, COMPLETED, UNCOMPLETED } from '../../../modules/todo/todoStates';
 
     const todoCtrl = new TodoController();
 
@@ -28,7 +29,7 @@
                 title: 'Todos',
                 todos: todoCtrl.todos,
                 allSize: todoCtrl.todos.length,
-                completedSize: todoCtrl.getTodos('completed').length,
+                completedSize: todoCtrl.getTodos(COMPLETED).length,
                 newTodo: {},
                 isEditor: false,
                 editTodo: {},
@@ -80,14 +81,14 @@
             },
             onActive: function(type){
                 switch(type){
-                    case 'all': this.todos = todoCtrl.getTodos('all'); break;
-                    case 'complete': this.todos = todoCtrl.getTodos('completed'); break;
-                    case 'uncomplete': this.todos = todoCtrl.getTodos('uncompleted'); break;
+                    case ALL: this.todos = todoCtrl.getAllTodos(); break;
+                    case COMPLETED: this.todos = todoCtrl.getCompletedTodos(); break;
+                    case UNCOMPLETED: this.todos = todoCtrl.getUncompletedTodos(); break;
                 }
             },
             updateTodos: function(){
-                this.allSize = todoCtrl.getTodos('all').length;
-                this.completedSize = todoCtrl.getTodos('completed').length;
+                this.allSize = todoCtrl.getAllTodos().length;
+                this.completedSize = todoCtrl.getCompletedTodos().length;
             }
         },
         computed: {
